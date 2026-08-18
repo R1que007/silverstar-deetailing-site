@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Silver Star Detailing Service | Bring Back the Shine</title>
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0c10;
+    --bg-alt: #12151b;
+    --card: #1a1e26;
+    --accent: #2f7dfa;
+    --accent-2: #0c3b91;
+    --accent-glow: rgba(47,125,250,0.35);
+    --silver: #c9ced6;
+    --text: #f5f5f6;
+    --muted: #98a0ac;
+    --border: rgba(255,255,255,0.08);
+    --radius: 14px;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{ font-family: 'Poppins', 'Inter', sans-serif; letter-spacing: -0.02em; }
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width: 100%; display:block; }
+  .container{ max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  section{ padding: 96px 0; }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: rgba(10,12,16,0.85);
+    border-bottom: 1px solid var(--border);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap: wrap; row-gap: 10px;
+    padding: 18px 24px; max-width: 1180px; margin:0 auto;
+  }
+  .logo{ font-weight:800; font-size: 1.3rem; letter-spacing: -0.01em; display:flex; align-items:center; gap:10px; flex: 1 1 auto; min-width: 0; }
+  .logo img{ width:38px; height:38px; border-radius:50%; flex-shrink:0; }
+  .logo span{ color: var(--accent); }
+  .nav-links{ display:flex; gap: 32px; font-weight:500; font-size:0.95rem; color: var(--muted); }
+  .nav-links a:hover{ color: var(--text); }
+  .btn{
+    display:inline-block; padding: 12px 26px; border-radius: 999px;
+    font-weight:600; font-size:0.95rem; transition: transform .15s ease, box-shadow .15s ease;
+    cursor:pointer; border:none; white-space: nowrap;
+  }
+  .nav-phone-icon{ display:none; }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color:#fff; box-shadow: 0 8px 24px var(--accent-glow);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 30px var(--accent-glow); }
+  .btn-ghost{
+    background: transparent; border: 1px solid var(--border); color: var(--text);
+  }
+  .btn-ghost:hover{ border-color: var(--accent); }
+  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .nav-toggle{ display:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 130px 0 110px;
+    overflow: hidden;
+    text-align:center;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 20%, var(--accent-glow), transparent 45%),
+      radial-gradient(circle at 80% 60%, rgba(255,255,255,0.06), transparent 40%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background: var(--card); border:1px solid var(--border);
+    padding: 8px 18px; border-radius: 999px; font-size:0.85rem; color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .eyebrow .dot{ width:8px; height:8px; border-radius:50%; background: var(--accent); }
+  .hero h1{
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    font-weight: 800;
+    max-width: 900px;
+    margin: 0 auto 22px;
+  }
+  .hero h1 .accent{ color: var(--accent); }
+  .hero p{
+    max-width: 620px; margin: 0 auto 40px; color: var(--muted); font-size: 1.15rem;
+  }
+  .hero-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom: 60px;}
+  .hero-stats{
+    display:flex; justify-content:center; gap: 56px; flex-wrap:wrap;
+  }
+  .stat h3{ font-size: 2rem; color: var(--accent); }
+  .stat p{ color: var(--muted); font-size: 0.9rem; margin:0; }
+
+  /* ---------- BEFORE / AFTER SLIDER ---------- */
+  .ba-section{ text-align:center; }
+  .section-tag{
+    color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em;
+    font-size: 0.8rem; font-weight:700; margin-bottom: 14px;
+  }
+  .section-title{ font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 16px; }
+  .section-sub{ color: var(--muted); max-width: 560px; margin: 0 auto 56px; }
+
+  .compare{
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    aspect-ratio: 16/10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    cursor: ew-resize;
+    user-select: none;
+    touch-action: none;
+  }
+  .compare .layer{
+    position: absolute; inset: 0; width:100%; height:100%;
+  }
+  .compare .layer img{ width:100%; height:100%; object-fit: cover; }
+  .compare .layer-before{ z-index:2; }
+  .label{
+    position:absolute; top:18px; padding: 6px 16px; border-radius: 999px;
+    font-size: 0.8rem; font-weight:700; letter-spacing: 0.04em;
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); z-index:5;
+  }
+  .label-before{ left:18px; }
+  .label-after{ right:18px; }
+  .slider-handle{
+    position:absolute; top:0; bottom:0; width:0; z-index:4;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(47,125,250,0.2);
+  }
+  .slider-btn{
+    position:absolute; top:50%; left:0; transform: translate(-50%,-50%);
+    width:52px; height:52px; border-radius:50%;
+    background: #fff; color:#111;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    font-size: 1.1rem; font-weight:700;
+  }
+  .placeholder-note{
+    margin-top: 22px; font-size: 0.85rem; color: var(--muted);
+  }
+
+  /* ---------- MAP ---------- */
+  .map-wrap{
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    aspect-ratio: 16/8;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+  .map-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; filter: grayscale(0.15) contrast(1.05); }
+  .map-actions{ margin-top: 24px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 24px; margin-top: 50px;
+  }
+  .service-card{
+    background: var(--card); border:1px solid var(--border); border-radius: var(--radius);
+    padding: 32px 26px; transition: transform .15s ease, border-color .15s ease;
+  }
+  .service-card:hover{ transform: translateY(-4px); border-color: var(--accent); }
+  .service-icon{
+    width:52px; height:52px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display:flex; align-items:center; justify-content:center;
+    font-size: 1.4rem; margin-bottom: 20px;
+  }
+  .service-card h3{ font-size: 1.15rem; margin-bottom: 10px; }
+  .service-card p{ color: var(--muted); font-size: 0.92rem; }
+  .service-price{ margin-top:16px; color: var(--accent); font-weight:700; font-size:0.9rem; }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background: var(--bg-alt); }
+  .about-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center;
+  }
+  .about-photo{
+    aspect-ratio: 4/5; border-radius: var(--radius); overflow:hidden;
+    border:1px solid var(--border);
+  }
+  .about ul{ list-style:none; margin-top: 24px; display:grid; gap:14px; }
+  .about li{ display:flex; gap:12px; color: var(--muted); }
+  .about li .check{ color: var(--accent); font-weight:700; }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 24px; margin-top: 50px;
+  }
+  .testimonial{
+    background: var(--card); border:1px solid var(--border); border-radius: var(--radius);
+    padding: 28px;
+  }
+  .stars{ color: var(--accent); margin-bottom: 14px; letter-spacing: 2px; }
+  .testimonial p{ color: var(--text); font-size:0.95rem; margin-bottom: 18px; }
+  .t-author{ display:flex; align-items:center; gap:12px; }
+  .t-avatar{
+    width:38px; height:38px; border-radius:50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.85rem;
+  }
+  .t-author span{ display:block; color: var(--muted); font-size: 0.8rem; }
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta{
+    background: linear-gradient(135deg, #1c1c20, #101012);
+    border-radius: 24px; padding: 64px 40px; text-align:center;
+    border: 1px solid var(--border);
+  }
+  .cta h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 14px; }
+  .cta p{ color: var(--muted); max-width: 480px; margin: 0 auto 32px; }
+
+  .contact-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 50px;
+  }
+  .contact-info{ display:grid; gap: 22px; align-content:start; }
+  .contact-item{ display:flex; gap:16px; align-items:flex-start; }
+  .contact-item .ic{
+    width:44px; height:44px; border-radius:10px; background: var(--card);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-item h4{ font-size: 0.95rem; margin-bottom:4px; }
+  .contact-item p{ color: var(--muted); font-size:0.9rem; }
+  .contact-item p a{ color: var(--muted); transition: color .15s ease; }
+  .contact-item p a:hover{ color: var(--accent); text-decoration: underline; }
+  form{ display:grid; gap:16px; }
+  form input, form textarea{
+    width:100%; background: var(--card); border:1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px; color: var(--text); font-family: inherit; font-size:0.95rem;
+  }
+  form textarea{ min-height: 110px; resize: vertical; }
+  form input::placeholder, form textarea::placeholder{ color: var(--muted); }
+  form button[disabled]{ opacity: 0.7; cursor: not-allowed; }
+  .form-status{ font-size: 0.88rem; min-height: 1.2em; margin-top: -4px; }
+  .form-status-ok{ color: #4ade80; }
+  .form-status-error{ color: #f87171; }
+
+  footer{
+    border-top: 1px solid var(--border); padding: 36px 0; text-align:center;
+    color: var(--muted); font-size: 0.85rem;
+  }
+
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .about-grid, .contact-grid{ grid-template-columns: 1fr; }
+    .about-photo{ order:-1; aspect-ratio: 16/9; }
+  }
+
+  @media (max-width: 520px){
+    section{ padding: 64px 0; }
+    nav{ padding: 14px 18px; }
+    .logo{ font-size: 1.05rem; gap:8px; }
+    .logo img{ width:30px; height:30px; }
+    .nav-cta{ gap: 10px; }
+    .btn{ padding: 10px 16px; font-size: 0.85rem; }
+    .nav-phone-full{ display:none; }
+    .nav-phone-icon{ display:inline; }
+    .map-actions{ flex-direction: column; align-items:stretch; }
+    .map-actions .btn{ text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><img src="assets/logo.jpg" alt="Silver Star Detailing Service logo" /> Silver Star<span> Detailing</span></div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#before-after">Our Work</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#location">Find Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:+17472817174" class="btn btn-ghost" aria-label="Call (747) 281-7174">
+        <span class="nav-phone-full">(747) 281-7174</span><span class="nav-phone-icon">📞</span>
+      </a>
+      <a href="#contact" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ---------- HERO ---------- -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Now booking appointments</div>
+    <h1>Your car deserves a <span class="accent">showroom finish</span>.</h1>
+    <p>Silver Star Detailing Service brings professional interior & exterior detailing to every car that comes through our shop. Fully insured, fully equipped, fully obsessed with the details.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Book Your Detail</a>
+      <a href="#before-after" class="btn btn-ghost">See the Transformation ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><h3>500+</h3><p>Cars Detailed</p></div>
+      <div class="stat"><h3>4.9★</h3><p>Average Rating</p></div>
+      <div class="stat"><h3>100%</h3><p>Satisfaction Guaranteed</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- BEFORE / AFTER ---------- -->
+<section id="before-after" class="ba-section">
+  <div class="container">
+    <div class="section-tag">See The Difference</div>
+    <h2 class="section-title">Drag the slider. See the shine.</h2>
+    <p class="section-sub">One of our recent full details — same car, same shop bay, forty minutes apart.</p>
+
+    <div class="compare" id="compare">
+      <span class="label label-before">BEFORE</span>
+      <span class="label label-after">AFTER</span>
+
+      <div class="layer layer-after">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a2a30'/%3E%3Cstop offset='1' stop-color='%232f7dfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g1)'/%3E%3Ctext x='400' y='260' font-family='Poppins,Arial' font-size='40' font-weight='700' fill='white' text-anchor='middle'%3EAFTER PHOTO%3C/text%3E%3Ctext x='400' y='300' font-family='Inter,Arial' font-size='18' fill='white' fill-opacity='0.85' text-anchor='middle'%3EReplace with your real photo%3C/text%3E%3C/svg%3E" alt="After detailing" />
+      </div>
+
+      <div class="layer layer-before" id="beforeLayer">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%232f2f33'/%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='800' height='500' filter='url(%23n)' opacity='0.15'/%3E%3Ctext x='400' y='260' font-family='Poppins,Arial' font-size='40' font-weight='700' fill='%23cfcfd2' text-anchor='middle'%3EBEFORE PHOTO%3C/text%3E%3Ctext x='400' y='300' font-family='Inter,Arial' font-size='18' fill='%23a0a0a6' text-anchor='middle'%3EReplace with your real photo%3C/text%3E%3C/svg%3E" alt="Before detailing" id="beforeImg" />
+      </div>
+
+      <div class="slider-handle" id="sliderHandle">
+        <div class="slider-btn">⟷</div>
+      </div>
+    </div>
+    <p class="placeholder-note">👆 These are placeholder graphics — swap in your brother's real before/after photos and this works exactly the same way.</p>
+  </div>
+</section>
+
+<!-- ---------- SERVICES ---------- -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Detailing packages for every car</h2>
+    <p class="section-sub">Pick a package or ask about a custom job — every visit includes a full walkaround inspection.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3>Express Wash & Vacuum</h3>
+        <p>Exterior hand wash, tire shine, windows, and full interior vacuum. Great for regular upkeep.</p>
+        <div class="service-price">From $45</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h3>Full Interior Detail</h3>
+        <p>Deep clean of seats, carpets, dash, and console — steam, shampoo, and odor treatment included.</p>
+        <div class="service-price">From $120</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪞</div>
+        <h3>Exterior Paint Correction</h3>
+        <p>Clay bar, machine polish, and swirl removal to bring back true gloss and depth.</p>
+        <div class="service-price">From $150</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Ceramic Coating</h3>
+        <p>Long-term paint protection that keeps your car looking freshly detailed for months.</p>
+        <div class="service-price">From $399</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- ABOUT ---------- -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 750'%3E%3Crect width='600' height='750' fill='%231c1c20'/%3E%3Ctext x='300' y='375' font-family='Poppins,Arial' font-size='28' font-weight='700' fill='%239a9aa3' text-anchor='middle'%3EOwner / Team Photo%3C/text%3E%3C/svg%3E" alt="Owner photo placeholder" />
+    </div>
+    <div>
+      <div class="section-tag">Why Silver Star</div>
+      <h2 class="section-title">Detailing done right, right at your curb</h2>
+      <p style="color:var(--muted)">Silver Star Detailing Service was started by David with one goal: bring showroom-quality care to every vehicle that comes through our shop. Every detail is done in-house, using professional-grade equipment and products that are safe for every interior and paint finish.</p>
+      <ul>
+        <li><span class="check">✓</span> Conveniently located — easy drop-off and pickup</li>
+        <li><span class="check">✓</span> Licensed, insured, and background-checked</li>
+        <li><span class="check">✓</span> Eco-friendly, water-efficient process</li>
+        <li><span class="check">✓</span> Satisfaction guaranteed on every job</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- TESTIMONIALS ---------- -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-tag">Customer Love</div>
+    <h2 class="section-title">What people are saying</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Showed up on time and my car looked brand new inside and out. The before/after was honestly shocking."</p>
+        <div class="t-author"><div class="t-avatar">JM</div><div><strong>Jordan M.</strong><span>Local customer</span></div></div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Dropped my car off in the morning and it was ready by lunch looking brand new. Easy in, easy out. Will book again."</p>
+        <div class="t-author"><div class="t-avatar">SK</div><div><strong>Sam K.</strong><span>Local customer</span></div></div>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"Best ceramic coating job I've had. Water just beads right off. Worth every penny."</p>
+        <div class="t-author"><div class="t-avatar">RT</div><div><strong>Riley T.</strong><span>Local customer</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- LOCATION / MAP ---------- -->
+<section id="location">
+  <div class="container" style="text-align:center;">
+    <div class="section-tag">Find Us</div>
+    <h2 class="section-title">Come see the shop</h2>
+    <p class="section-sub">Drop your car off or swing by for a free quote — we're easy to find.</p>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=7251+Varna+Ave,+North+Hollywood,+CA+91605&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Silver Star Detailing Service shop location">
+      </iframe>
+    </div>
+    <p class="placeholder-note">📍 Placeholder pin — send over the real shop address and it'll drop straight into this map.</p>
+    <div class="map-actions">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
+      <a href="tel:+17472817174" class="btn btn-ghost">Call Before You Come</a>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- CONTACT ---------- -->
+<section id="contact">
+  <div class="container">
+    <div class="cta">
+      <div class="section-tag" style="text-align:center">Get In Touch</div>
+      <h2>Ready for that before/after moment?</h2>
+      <p>Tell us about your car — we'll get back to you with a quote same day.</p>
+
+      <div class="contact-grid" style="text-align:left; margin-top:40px;">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="ic">📞</div>
+            <div><h4>Call or Text David</h4><p><a href="tel:+17472817174">(747) 281-7174</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">✉️</div>
+            <div><h4>Email</h4><p><a href="mailto:hello@silverstardetailing.com">hello@silverstardetailing.com</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">📍</div>
+            <div><h4>Shop Address</h4><p><a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener">7251 Varna Ave., North Hollywood, CA 91605</a></p></div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">🕒</div>
+            <div><h4>Hours</h4><p>Mon–Sat, 8am–6pm</p></div>
+          </div>
+        </div>
+        <form id="quoteForm">
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="tel" name="phone" placeholder="Phone number" required />
+          <input type="text" name="vehicle" placeholder="Vehicle (year / make / model)" />
+          <textarea name="message" placeholder="What are you looking to get done?"></textarea>
+          <button type="submit" class="btn btn-primary" id="quoteSubmitBtn">Request a Quote</button>
+          <p id="quoteFormStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; <span id="year"></span> Silver Star Detailing Service. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Before/After slider logic
+  const compare = document.getElementById('compare');
+  const beforeLayer = document.getElementById('beforeLayer');
+  const beforeImg = document.getElementById('beforeImg');
+  const handle = document.getElementById('sliderHandle');
+
+  function setPosition(percent){
+    percent = Math.max(0, Math.min(100, percent));
+    beforeLayer.style.width = percent + '%';
+    handle.style.left = percent + '%';
+    // keep the "before" image from squishing as its wrapper narrows
+    beforeImg.style.width = compare.offsetWidth + 'px';
+  }
+
+  function handleMove(clientX){
+    const rect = compare.getBoundingClientRect();
+    const percent = ((clientX - rect.left) / rect.width) * 100;
+    setPosition(percent);
+  }
+
+  let dragging = false;
+  compare.addEventListener('mousedown', (e) => { dragging = true; handleMove(e.clientX); });
+  window.addEventListener('mousemove', (e) => { if(dragging) handleMove(e.clientX); });
+  window.addEventListener('mouseup', () => dragging = false);
+
+  compare.addEventListener('touchstart', (e) => { dragging = true; handleMove(e.touches[0].clientX); }, {passive:true});
+  compare.addEventListener('touchmove', (e) => { if(dragging) handleMove(e.touches[0].clientX); }, {passive:true});
+  window.addEventListener('touchend', () => dragging = false);
+
+  window.addEventListener('resize', () => {
+    beforeImg.style.width = compare.offsetWidth + 'px';
+  });
+
+  // init at 50%
+  setPosition(50);
+
+  // ---- Quote form submission (FormSubmit.co — no backend/account needed) ----
+  // TODO: swap QUOTE_FORM_EMAIL for the real inbox that should receive quote requests.
+  // The first submission to a new address triggers a one-time confirmation email from
+  // FormSubmit — someone needs to click the link in that email before requests start
+  // arriving normally.
+  const QUOTE_FORM_EMAIL = 'hello@silverstardetailing.com';
+
+  const quoteForm = document.getElementById('quoteForm');
+  const quoteStatus = document.getElementById('quoteFormStatus');
+  const quoteBtn = document.getElementById('quoteSubmitBtn');
+
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    quoteStatus.textContent = '';
+    quoteStatus.className = 'form-status';
+    quoteBtn.disabled = true;
+    quoteBtn.textContent = 'Sending…';
+
+    const data = new FormData(quoteForm);
+    data.append('_subject', 'New quote request — Silver Star Detailing website');
+    data.append('_template', 'table');
+    data.append('_captcha', 'false');
+
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${QUOTE_FORM_EMAIL}`, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data,
+      });
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
+      quoteStatus.textContent = "Thanks! We've got your request and will text or call you back today.";
+      quoteStatus.classList.add('form-status-ok');
+      quoteForm.reset();
+    } catch (err) {
+      quoteStatus.textContent = 'Something went wrong sending that — please call or text us directly at (747) 281-7174.';
+      quoteStatus.classList.add('form-status-error');
+    } finally {
+      quoteBtn.disabled = false;
+      quoteBtn.textContent = 'Request a Quote';
+    }
+  });
+</script>
+
+</body>
+</html>
