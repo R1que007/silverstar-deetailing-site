@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Silver Star Detailing Service | Bring Back the Shine</title>
-<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48cmFkaWFsR3JhZGllbnQgaWQ9ImJnIiBjeD0iNTAlIiBjeT0iNDIlIiByPSI2NSUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFlMjYiLz48c3RvcCBvZmZzZXQ9IjcwJSIgc3RvcC1jb2xvcj0iIzBkMGYxNCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMCIvPjwvcmFkaWFsR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJzZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iMjIlIiBzdG9wLWNvbG9yPSIjZTRlOGVmIi8+PHN0b3Agb2Zmc2V0PSI0MCUiIHN0b3AtY29sb3I9IiM5YWE0YjIiLz48c3RvcCBvZmZzZXQ9IjU1JSIgc3RvcC1jb2xvcj0iI2Y1ZjdmYSIvPjxzdG9wIG9mZnNldD0iNzAlIiBzdG9wLWNvbG9yPSIjN2M4Njk1Ii8+PHN0b3Agb2Zmc2V0PSI4OCUiIHN0b3AtY29sb3I9IiNkOGRjZTMiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM5YWE0YjIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0OCIgZmlsbD0idXJsKCNiZykiIHN0cm9rZT0iIzNhNDE1MCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMmY3ZGZhIiBzdHJva2Utd2lkdGg9IjAuNzUiIG9wYWNpdHk9IjAuNSIvPjxwYXRoIGQ9Ik0gNTAsMTIgTCA1OS4xMSwzOS40NiBMIDg4LjA0LDM5LjY0IEwgNjQuNzQsNTYuNzkgTCA3My41MSw4NC4zNiBMIDUwLDY3LjUgTCAyNi40OSw4NC4zNiBMIDM1LjI2LDU2Ljc5IEwgMTEuOTYsMzkuNjQgTCA0MC44OSwzOS40NiBaIiBmaWxsPSJ1cmwoI3NnKSIgc3Ryb2tlPSIjNWI2NDcyIiBzdHJva2Utd2lkdGg9IjAuNiIvPjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -49,7 +49,7 @@
     padding: 18px 24px; max-width: 1180px; margin:0 auto;
   }
   .logo{ font-weight:800; font-size: 1.3rem; letter-spacing: -0.01em; display:flex; align-items:center; gap:10px; flex: 1 1 auto; min-width: 0; }
-  .logo img{ width:38px; height:38px; border-radius:50%; flex-shrink:0; }
+  .logo svg{ width:38px; height:38px; flex-shrink:0; }
   .logo span{ color: var(--accent); }
   .nav-links{ display:flex; gap: 32px; font-weight:500; font-size:0.95rem; color: var(--muted); }
   .nav-links a:hover{ color: var(--text); }
@@ -276,7 +276,7 @@
     section{ padding: 64px 0; }
     nav{ padding: 14px 18px; }
     .logo{ font-size: 1.05rem; gap:8px; }
-    .logo img{ width:30px; height:30px; }
+    .logo svg{ width:30px; height:30px; }
     .nav-cta{ gap: 10px; }
     .btn{ padding: 10px 16px; font-size: 0.85rem; }
     .nav-phone-full{ display:none; }
@@ -290,7 +290,31 @@
 
 <header>
   <nav>
-    <div class="logo"><img src="assets/logo.jpg" alt="Silver Star Detailing Service logo" /> Silver Star<span> Detailing</span></div>
+    <div class="logo">
+      <svg viewBox="0 0 100 100" role="img" aria-label="Silver Star Detailing Service logo">
+        <defs>
+          <radialGradient id="navBadgeGrad" cx="50%" cy="42%" r="65%">
+            <stop offset="0%" stop-color="#1a1e26"/>
+            <stop offset="70%" stop-color="#0d0f14"/>
+            <stop offset="100%" stop-color="#000"/>
+          </radialGradient>
+          <linearGradient id="navSilverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff"/>
+            <stop offset="22%" stop-color="#e4e8ef"/>
+            <stop offset="40%" stop-color="#9aa4b2"/>
+            <stop offset="55%" stop-color="#f5f7fa"/>
+            <stop offset="70%" stop-color="#7c8695"/>
+            <stop offset="88%" stop-color="#d8dce3"/>
+            <stop offset="100%" stop-color="#9aa4b2"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="48" fill="url(#navBadgeGrad)" stroke="#3a4150" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="48" fill="none" stroke="#2f7dfa" stroke-width="0.75" opacity="0.5"/>
+        <path d="M 50,12 L 59.11,39.46 L 88.04,39.64 L 64.74,56.79 L 73.51,84.36 L 50,67.5 L 26.49,84.36 L 35.26,56.79 L 11.96,39.64 L 40.89,39.46 Z"
+              fill="url(#navSilverGrad)" stroke="#5b6472" stroke-width="0.6"/>
+      </svg>
+      Silver Star<span> Detailing</span>
+    </div>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#before-after">Our Work</a>
@@ -313,13 +337,13 @@
   <div class="container">
     <div class="eyebrow"><span class="dot"></span> Now booking appointments</div>
     <h1>Your car deserves a <span class="accent">showroom finish</span>.</h1>
-    <p>Silver Star Detailing Service brings professional interior & exterior detailing to every car that comes through our shop. Fully insured, fully equipped, fully obsessed with the details.</p>
+    <p>Silver Star Detailing Service brings professional interior & exterior detailing to every car that comes through our shop. Fully equipped and fully obsessed with the details.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-primary">Book Your Detail</a>
       <a href="#before-after" class="btn btn-ghost">See the Transformation ↓</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><h3>500+</h3><p>Cars Detailed</p></div>
+      <div class="stat"><h3>Premium</h3><p>Cars Detailed</p></div>
       <div class="stat"><h3>4.9★</h3><p>Average Rating</p></div>
       <div class="stat"><h3>100%</h3><p>Satisfaction Guaranteed</p></div>
     </div>
@@ -397,11 +421,11 @@
     </div>
     <div>
       <div class="section-tag">Why Silver Star</div>
-      <h2 class="section-title">Detailing done right, right at your curb</h2>
+      <h2 class="section-title">Detailing done right</h2>
       <p style="color:var(--muted)">Silver Star Detailing Service was started by David with one goal: bring showroom-quality care to every vehicle that comes through our shop. Every detail is done in-house, using professional-grade equipment and products that are safe for every interior and paint finish.</p>
       <ul>
         <li><span class="check">✓</span> Conveniently located — easy drop-off and pickup</li>
-        <li><span class="check">✓</span> Licensed, insured, and background-checked</li>
+      
         <li><span class="check">✓</span> Eco-friendly, water-efficient process</li>
         <li><span class="check">✓</span> Satisfaction guaranteed on every job</li>
       </ul>
@@ -417,12 +441,12 @@
     <div class="testimonial-grid">
       <div class="testimonial">
         <div class="stars">★★★★★</div>
-        <p>"Showed up on time and my car looked brand new inside and out. The before/after was honestly shocking."</p>
+        <p>"My car looked brand new inside and out. The before/after was honestly shocking."</p>
         <div class="t-author"><div class="t-avatar">JM</div><div><strong>Jordan M.</strong><span>Local customer</span></div></div>
       </div>
       <div class="testimonial">
         <div class="stars">★★★★★</div>
-        <p>"Dropped my car off in the morning and it was ready by lunch looking brand new. Easy in, easy out. Will book again."</p>
+        <p>"Dropped my car off in the morning and it was ready by noon looking brand new. Easy in, easy out. Will book again."</p>
         <div class="t-author"><div class="t-avatar">SK</div><div><strong>Sam K.</strong><span>Local customer</span></div></div>
       </div>
       <div class="testimonial">
@@ -449,7 +473,7 @@
         title="Silver Star Detailing Service shop location">
       </iframe>
     </div>
-    <p class="placeholder-note">📍 Placeholder pin — send over the real shop address and it'll drop straight into this map.</p>
+    <p class="placeholder-note"></p>
     <div class="map-actions">
       <a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
       <a href="tel:+17472817174" class="btn btn-ghost">Call Before You Come</a>
