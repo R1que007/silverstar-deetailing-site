@@ -362,19 +362,16 @@
       <span class="label label-after">AFTER</span>
 
       <div class="layer layer-after">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a2a30'/%3E%3Cstop offset='1' stop-color='%232f7dfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g1)'/%3E%3Ctext x='400' y='260' font-family='Poppins,Arial' font-size='40' font-weight='700' fill='white' text-anchor='middle'%3EAFTER PHOTO%3C/text%3E%3Ctext x='400' y='300' font-family='Inter,Arial' font-size='18' fill='white' fill-opacity='0.85' text-anchor='middle'%3EReplace with your real photo%3C/text%3E%3C/svg%3E" alt="After detailing" />
+        <img src="assets/imageTeslaClean.jpg" />
       </div>
 
       <div class="layer layer-before" id="beforeLayer">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%232f2f33'/%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='800' height='500' filter='url(%23n)' opacity='0.15'/%3E%3Ctext x='400' y='260' font-family='Poppins,Arial' font-size='40' font-weight='700' fill='%23cfcfd2' text-anchor='middle'%3EBEFORE PHOTO%3C/text%3E%3Ctext x='400' y='300' font-family='Inter,Arial' font-size='18' fill='%23a0a0a6' text-anchor='middle'%3EReplace with your real photo%3C/text%3E%3C/svg%3E" alt="Before detailing" id="beforeImg" />
+        <img src="assets/imageTeslaDirty.jpg" />
       </div>
 
       <div class="slider-handle" id="sliderHandle">
         <div class="slider-btn">⟷</div>
       </div>
-    </div>
-    <p class="placeholder-note">👆 These are placeholder graphics — swap in your brother's real before/after photos and this works exactly the same way.</p>
-  </div>
 </section>
 
 <!-- ---------- SERVICES ---------- -->
@@ -383,7 +380,6 @@
     <div class="section-tag">What We Offer</div>
     <h2 class="section-title">Detailing packages for every car</h2>
     <p class="section-sub">Pick a package or ask about a custom job — every visit includes a full walkaround inspection.</p>
-
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">✨</div>
@@ -452,7 +448,7 @@
       <div class="testimonial">
         <div class="stars">★★★★★</div>
         <p>"Best ceramic coating job I've had. Water just beads right off. Worth every penny."</p>
-        <div class="t-author"><div class="t-avatar">RT</div><div><strong>Riley T.</strong><span>Local customer</span></div></div>
+        <div class="t-author"><div class="t-avatar">RT</div><div><strong>Mary L.</strong><span>Local customer</span></div></div>
       </div>
     </div>
   </div>
@@ -538,10 +534,10 @@
 
   function setPosition(percent){
     percent = Math.max(0, Math.min(100, percent));
-    beforeLayer.style.width = percent + '%';
+    beforeLayer.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
     handle.style.left = percent + '%';
     // keep the "before" image from squishing as its wrapper narrows
-    beforeImg.style.width = compare.offsetWidth + 'px';
+    //beforeImg.style.width = compare.offsetWidth + 'px';
   }
 
   function handleMove(clientX){
