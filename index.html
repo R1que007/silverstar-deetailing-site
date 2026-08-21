@@ -68,7 +68,8 @@
     background: transparent; border: 1px solid var(--border); color: var(--text);
   }
   .btn-ghost:hover{ border-color: var(--accent); }
-  .nav-cta{ display:flex; align-items:center; gap:16px; }
+  .nav-cta{ display:flex; align-items:center; gap:16px; flex-wrap: wrap; justify-content: flex-end; }
+  .lang-toggle{ padding: 12px 18px; font-size: 0.9rem; }
   .nav-toggle{ display:none; }
 
   /* ---------- HERO ---------- */
@@ -316,18 +317,19 @@
       Silver Star<span> Detailing</span>
     </div>
     <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#before-after">Our Work</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#location">Find Us</a>
-      <a href="#contact">Contact</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#before-after" data-i18n="nav.work">Our Work</a>
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
+      <a href="#location" data-i18n="nav.findUs">Find Us</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
     <div class="nav-cta">
       <a href="tel:+17472817174" class="btn btn-ghost" aria-label="Call (747) 281-7174">
         <span class="nav-phone-full">(747) 281-7174</span><span class="nav-phone-icon">📞</span>
       </a>
-      <a href="#contact" class="btn btn-primary">Get a Quote</a>
+      <button type="button" id="langToggle" class="btn btn-ghost lang-toggle">Español</button>
+      <a href="#contact" class="btn btn-primary" data-i18n="nav.getQuote">Get a Quote</a>
     </div>
   </nav>
 </header>
@@ -335,17 +337,17 @@
 <!-- ---------- HERO ---------- -->
 <section class="hero">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span> Now booking appointments</div>
-    <h1>Your car deserves a <span class="accent">showroom finish</span>.</h1>
-    <p>Silver Star Detailing Service brings professional interior & exterior detailing to every car that comes through our shop. Fully equipped and fully obsessed with the details.</p>
+    <div class="eyebrow"><span class="dot"></span> <span data-i18n="hero.eyebrow">Now booking appointments</span></div>
+    <h1><span data-i18n="hero.h1a">Your car deserves a</span> <span class="accent" data-i18n="hero.h1b">showroom finish</span>.</h1>
+    <p data-i18n="hero.p">Silver Star Detailing Service brings professional interior &amp; exterior detailing to every car that comes through our shop. Fully equipped and fully obsessed with the details.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Book Your Detail</a>
-      <a href="#before-after" class="btn btn-ghost">See the Transformation ↓</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="hero.bookBtn">Book Your Detail</a>
+      <a href="#before-after" class="btn btn-ghost" data-i18n="hero.seeBtn">See the Transformation ↓</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><h3>Premium</h3><p>Cars Detailed</p></div>
-      <div class="stat"><h3>4.9★</h3><p>Average Rating</p></div>
-      <div class="stat"><h3>100%</h3><p>Satisfaction Guaranteed</p></div>
+      <div class="stat"><h3 data-i18n="hero.stat1h">Premium</h3><p data-i18n="hero.stat1p">Cars Detailed</p></div>
+      <div class="stat"><h3>4.9★</h3><p data-i18n="hero.stat2p">Average Rating</p></div>
+      <div class="stat"><h3>100%</h3><p data-i18n="hero.stat3p">Satisfaction Guaranteed</p></div>
     </div>
   </div>
 </section>
@@ -353,57 +355,59 @@
 <!-- ---------- BEFORE / AFTER ---------- -->
 <section id="before-after" class="ba-section">
   <div class="container">
-    <div class="section-tag">See The Difference</div>
-    <h2 class="section-title">Drag the slider. See the shine.</h2>
-    <p class="section-sub">One of our recent full details — same car, same shop bay, forty minutes apart.</p>
+    <div class="section-tag" data-i18n="ba.tag">See The Difference</div>
+    <h2 class="section-title" data-i18n="ba.title">Drag the slider. See the shine.</h2>
+    <p class="section-sub" data-i18n="ba.sub">One of our recent full details — same car, same shop bay, forty minutes apart.</p>
 
     <div class="compare" id="compare">
-      <span class="label label-before">BEFORE</span>
-      <span class="label label-after">AFTER</span>
+      <span class="label label-before" data-i18n="ba.before">BEFORE</span>
+      <span class="label label-after" data-i18n="ba.after">AFTER</span>
 
       <div class="layer layer-after">
-        <img src="assets/imageTeslaClean.jpg" />
+        <img src="assets/imageTeslaClean.jpg" alt="After detailing" />
       </div>
 
       <div class="layer layer-before" id="beforeLayer">
-        <img src="assets/imageTeslaDirty.jpg" />
+        <img src="assets/imageTeslaDirty.jpg" alt="Before detailing" id="beforeImg" />
       </div>
 
       <div class="slider-handle" id="sliderHandle">
         <div class="slider-btn">⟷</div>
       </div>
+    </div>
+  </div>
 </section>
 
 <!-- ---------- SERVICES ---------- -->
 <section id="services">
   <div class="container">
-    <div class="section-tag">What We Offer</div>
-    <h2 class="section-title">Detailing packages for every car</h2>
-    <p class="section-sub">Pick a package or ask about a custom job — every visit includes a full walkaround inspection.</p>
+    <div class="section-tag" data-i18n="services.tag">What We Offer</div>
+    <h2 class="section-title" data-i18n="services.title">Detailing packages for every car</h2>
+    <p class="section-sub" data-i18n="services.sub">Pick a package or ask about a custom job — every visit includes a full walkaround inspection.</p>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon">✨</div>
-        <h3>Express Wash & Vacuum</h3>
-        <p>Exterior hand wash, tire shine, windows, and full interior vacuum. Great for regular upkeep.</p>
-        <div class="service-price">From $45</div>
+        <h3 data-i18n="service1.title">Express Wash &amp; Vacuum</h3>
+        <p data-i18n="service1.desc">Exterior hand wash, tire shine, windows, and full interior vacuum. Great for regular upkeep.</p>
+        <div class="service-price" data-i18n="service1.price">From $45</div>
       </div>
       <div class="service-card">
         <div class="service-icon">🚗</div>
-        <h3>Full Interior Detail</h3>
-        <p>Deep clean of seats, carpets, dash, and console — steam, shampoo, and odor treatment included.</p>
-        <div class="service-price">From $120</div>
+        <h3 data-i18n="service2.title">Full Interior Detail</h3>
+        <p data-i18n="service2.desc">Deep clean of seats, carpets, dash, and console — steam, shampoo, and odor treatment included.</p>
+        <div class="service-price" data-i18n="service2.price">From $120</div>
       </div>
       <div class="service-card">
         <div class="service-icon">🪞</div>
-        <h3>Exterior Paint Correction</h3>
-        <p>Clay bar, machine polish, and swirl removal to bring back true gloss and depth.</p>
-        <div class="service-price">From $150</div>
+        <h3 data-i18n="service3.title">Exterior Paint Correction</h3>
+        <p data-i18n="service3.desc">Clay bar, machine polish, and swirl removal to bring back true gloss and depth.</p>
+        <div class="service-price" data-i18n="service3.price">From $150</div>
       </div>
       <div class="service-card">
         <div class="service-icon">🛡️</div>
-        <h3>Ceramic Coating</h3>
-        <p>Long-term paint protection that keeps your car looking freshly detailed for months.</p>
-        <div class="service-price">From $399</div>
+        <h3 data-i18n="service4.title">Ceramic Coating</h3>
+        <p data-i18n="service4.desc">Long-term paint protection that keeps your car looking freshly detailed for months.</p>
+        <div class="service-price" data-i18n="service4.price">From $399</div>
       </div>
     </div>
   </div>
@@ -416,14 +420,13 @@
       <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 750'%3E%3Crect width='600' height='750' fill='%231c1c20'/%3E%3Ctext x='300' y='375' font-family='Poppins,Arial' font-size='28' font-weight='700' fill='%239a9aa3' text-anchor='middle'%3EOwner / Team Photo%3C/text%3E%3C/svg%3E" alt="Owner photo placeholder" />
     </div>
     <div>
-      <div class="section-tag">Why Silver Star</div>
-      <h2 class="section-title">Detailing done right</h2>
-      <p style="color:var(--muted)">Silver Star Detailing Service was started by David with one goal: bring showroom-quality care to every vehicle that comes through our shop. Every detail is done in-house, using professional-grade equipment and products that are safe for every interior and paint finish.</p>
+      <div class="section-tag" data-i18n="about.tag">Why Silver Star</div>
+      <h2 class="section-title" data-i18n="about.title">Detailing done right</h2>
+      <p style="color:var(--muted)" data-i18n="about.p">Silver Star Detailing Service was started by David with one goal: bring showroom-quality care to every vehicle that comes through our shop. Every detail is done in-house, using professional-grade equipment and products that are safe for every interior and paint finish.</p>
       <ul>
-        <li><span class="check">✓</span> Conveniently located — easy drop-off and pickup</li>
-      
-        <li><span class="check">✓</span> Eco-friendly, water-efficient process</li>
-        <li><span class="check">✓</span> Satisfaction guaranteed on every job</li>
+        <li><span class="check">✓</span> <span data-i18n="about.li1">Conveniently located — easy drop-off and pickup</span></li>
+        <li><span class="check">✓</span> <span data-i18n="about.li2">Eco-friendly, water-efficient process</span></li>
+        <li><span class="check">✓</span> <span data-i18n="about.li3">Satisfaction guaranteed on every job</span></li>
       </ul>
     </div>
   </div>
@@ -432,23 +435,23 @@
 <!-- ---------- TESTIMONIALS ---------- -->
 <section id="reviews">
   <div class="container">
-    <div class="section-tag">Customer Love</div>
-    <h2 class="section-title">What people are saying</h2>
+    <div class="section-tag" data-i18n="reviews.tag">Customer Love</div>
+    <h2 class="section-title" data-i18n="reviews.title">What people are saying</h2>
     <div class="testimonial-grid">
       <div class="testimonial">
         <div class="stars">★★★★★</div>
-        <p>"My car looked brand new inside and out. The before/after was honestly shocking."</p>
-        <div class="t-author"><div class="t-avatar">JM</div><div><strong>Jordan M.</strong><span>Local customer</span></div></div>
+        <p data-i18n="t1.quote">"My car looked brand new inside and out. The before/after was honestly shocking."</p>
+        <div class="t-author"><div class="t-avatar">JM</div><div><strong>Jordan M.</strong><span data-i18n="reviews.localCustomer">Local customer</span></div></div>
       </div>
       <div class="testimonial">
         <div class="stars">★★★★★</div>
-        <p>"Dropped my car off in the morning and it was ready by noon looking brand new. Easy in, easy out. Will book again."</p>
-        <div class="t-author"><div class="t-avatar">SK</div><div><strong>Sam K.</strong><span>Local customer</span></div></div>
+        <p data-i18n="t2.quote">"Dropped my car off in the morning and it was ready by noon looking brand new. Easy in, easy out. Will book again."</p>
+        <div class="t-author"><div class="t-avatar">SK</div><div><strong>Sam K.</strong><span data-i18n="reviews.localCustomer">Local customer</span></div></div>
       </div>
       <div class="testimonial">
         <div class="stars">★★★★★</div>
-        <p>"Best ceramic coating job I've had. Water just beads right off. Worth every penny."</p>
-        <div class="t-author"><div class="t-avatar">RT</div><div><strong>Mary L.</strong><span>Local customer</span></div></div>
+        <p data-i18n="t3.quote">"Best ceramic coating job I've had. Water just beads right off. Worth every penny."</p>
+        <div class="t-author"><div class="t-avatar">RT</div><div><strong>Mary L.</strong><span data-i18n="reviews.localCustomer">Local customer</span></div></div>
       </div>
     </div>
   </div>
@@ -457,9 +460,9 @@
 <!-- ---------- LOCATION / MAP ---------- -->
 <section id="location">
   <div class="container" style="text-align:center;">
-    <div class="section-tag">Find Us</div>
-    <h2 class="section-title">Come see the shop</h2>
-    <p class="section-sub">Drop your car off or swing by for a free quote — we're easy to find.</p>
+    <div class="section-tag" data-i18n="location.tag">Find Us</div>
+    <h2 class="section-title" data-i18n="location.title">Come see the shop</h2>
+    <p class="section-sub" data-i18n="location.sub">Drop your car off or swing by for a free quote — we're easy to find.</p>
 
     <div class="map-wrap">
       <iframe
@@ -469,10 +472,9 @@
         title="Silver Star Detailing Service shop location">
       </iframe>
     </div>
-    <p class="placeholder-note"></p>
     <div class="map-actions">
-      <a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener" class="btn btn-primary">Get Directions</a>
-      <a href="tel:+17472817174" class="btn btn-ghost">Call Before You Come</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="location.directions">Get Directions</a>
+      <a href="tel:+17472817174" class="btn btn-ghost" data-i18n="location.callBefore">Call Before You Come</a>
     </div>
   </div>
 </section>
@@ -481,35 +483,35 @@
 <section id="contact">
   <div class="container">
     <div class="cta">
-      <div class="section-tag" style="text-align:center">Get In Touch</div>
-      <h2>Ready for that before/after moment?</h2>
-      <p>Tell us about your car — we'll get back to you with a quote same day.</p>
+      <div class="section-tag" style="text-align:center" data-i18n="contact.tag">Get In Touch</div>
+      <h2 data-i18n="contact.title">Ready for that before/after moment?</h2>
+      <p data-i18n="contact.p">Tell us about your car — we'll get back to you with a quote same day.</p>
 
       <div class="contact-grid" style="text-align:left; margin-top:40px;">
         <div class="contact-info">
           <div class="contact-item">
             <div class="ic">📞</div>
-            <div><h4>Call or Text David</h4><p><a href="tel:+17472817174">(747) 281-7174</a></p></div>
+            <div><h4 data-i18n="contact.callText">Call or Text David</h4><p><a href="tel:+17472817174">(747) 281-7174</a></p></div>
           </div>
           <div class="contact-item">
             <div class="ic">✉️</div>
-            <div><h4>Email</h4><p><a href="mailto:hello@silverstardetailing.com">hello@silverstardetailing.com</a></p></div>
+            <div><h4 data-i18n="contact.email">Email</h4><p><a href="mailto:hello@silverstardetailing.com">hello@silverstardetailing.com</a></p></div>
           </div>
           <div class="contact-item">
             <div class="ic">📍</div>
-            <div><h4>Shop Address</h4><p><a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener">7251 Varna Ave., North Hollywood, CA 91605</a></p></div>
+            <div><h4 data-i18n="contact.address">Shop Address</h4><p><a href="https://www.google.com/maps/dir/?api=1&destination=7251+Varna+Ave,+North+Hollywood,+CA+91605" target="_blank" rel="noopener">7251 Varna Ave., North Hollywood, CA 91605</a></p></div>
           </div>
           <div class="contact-item">
             <div class="ic">🕒</div>
-            <div><h4>Hours</h4><p>Mon–Sat, 8am–6pm</p></div>
+            <div><h4 data-i18n="contact.hours">Hours</h4><p data-i18n="contact.hoursValue">Mon–Sat, 8am–6pm</p></div>
           </div>
         </div>
         <form id="quoteForm">
-          <input type="text" name="name" placeholder="Full name" required />
-          <input type="tel" name="phone" placeholder="Phone number" required />
-          <input type="text" name="vehicle" placeholder="Vehicle (year / make / model)" />
-          <textarea name="message" placeholder="What are you looking to get done?"></textarea>
-          <button type="submit" class="btn btn-primary" id="quoteSubmitBtn">Request a Quote</button>
+          <input type="text" name="name" placeholder="Full name" data-i18n-placeholder="form.name" required />
+          <input type="tel" name="phone" placeholder="Phone number" data-i18n-placeholder="form.phone" required />
+          <input type="text" name="vehicle" placeholder="Vehicle (year / make / model)" data-i18n-placeholder="form.vehicle" />
+          <textarea name="message" placeholder="What are you looking to get done?" data-i18n-placeholder="form.message"></textarea>
+          <button type="submit" class="btn btn-primary" id="quoteSubmitBtn" data-i18n="form.submit">Request a Quote</button>
           <p id="quoteFormStatus" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -519,7 +521,7 @@
 
 <footer>
   <div class="container">
-    &copy; <span id="year"></span> Silver Star Detailing Service. All rights reserved.
+    &copy; <span id="year"></span> Silver Star Detailing Service. <span data-i18n="footer.rights">All rights reserved.</span>
   </div>
 </footer>
 
@@ -536,8 +538,6 @@
     percent = Math.max(0, Math.min(100, percent));
     beforeLayer.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
     handle.style.left = percent + '%';
-    // keep the "before" image from squishing as its wrapper narrows
-    //beforeImg.style.width = compare.offsetWidth + 'px';
   }
 
   function handleMove(clientX){
@@ -554,10 +554,6 @@
   compare.addEventListener('touchstart', (e) => { dragging = true; handleMove(e.touches[0].clientX); }, {passive:true});
   compare.addEventListener('touchmove', (e) => { if(dragging) handleMove(e.touches[0].clientX); }, {passive:true});
   window.addEventListener('touchend', () => dragging = false);
-
-  window.addEventListener('resize', () => {
-    beforeImg.style.width = compare.offsetWidth + 'px';
-  });
 
   // init at 50%
   setPosition(50);
@@ -578,7 +574,7 @@
     quoteStatus.textContent = '';
     quoteStatus.className = 'form-status';
     quoteBtn.disabled = true;
-    quoteBtn.textContent = 'Sending…';
+    quoteBtn.textContent = currentLang === 'es' ? 'Enviando…' : 'Sending…';
 
     const data = new FormData(quoteForm);
     data.append('_subject', 'New quote request — Silver Star Detailing website');
@@ -592,17 +588,134 @@
         body: data,
       });
       if (!res.ok) throw new Error('Request failed: ' + res.status);
-      quoteStatus.textContent = "Thanks! We've got your request and will text or call you back today.";
+      quoteStatus.textContent = currentLang === 'es'
+        ? '¡Gracias! Recibimos tu solicitud y te llamaremos o enviaremos un mensaje hoy mismo.'
+        : "Thanks! We've got your request and will text or call you back today.";
       quoteStatus.classList.add('form-status-ok');
       quoteForm.reset();
+      applyLanguage(currentLang); // re-apply placeholders after reset
     } catch (err) {
-      quoteStatus.textContent = 'Something went wrong sending that — please call or text us directly at (747) 281-7174.';
+      quoteStatus.textContent = currentLang === 'es'
+        ? 'Algo salió mal al enviar tu solicitud — por favor llámanos o envíanos un mensaje directamente al (747) 281-7174.'
+        : 'Something went wrong sending that — please call or text us directly at (747) 281-7174.';
       quoteStatus.classList.add('form-status-error');
     } finally {
       quoteBtn.disabled = false;
-      quoteBtn.textContent = 'Request a Quote';
+      quoteBtn.textContent = currentLang === 'es' ? 'Solicitar Cotización' : 'Request a Quote';
     }
   });
+
+  // ---- Español / English toggle ----
+  const es = {
+    'nav.services': 'Servicios',
+    'nav.work': 'Nuestro Trabajo',
+    'nav.about': 'Nosotros',
+    'nav.reviews': 'Reseñas',
+    'nav.findUs': 'Ubicación',
+    'nav.contact': 'Contacto',
+    'nav.getQuote': 'Cotizar Ahora',
+    'hero.eyebrow': 'Reservando citas ahora',
+    'hero.h1a': 'Tu auto merece un',
+    'hero.h1b': 'acabado impecable',
+    'hero.p': 'Silver Star Detailing Service ofrece detallado profesional de interior y exterior para cada auto que llega a nuestro taller. Totalmente equipados y obsesionados con los detalles.',
+    'hero.bookBtn': 'Reserva Tu Detallado',
+    'hero.seeBtn': 'Ver la Transformación ↓',
+    'hero.stat1h': 'Premium',
+    'hero.stat1p': 'Autos Detallados',
+    'hero.stat2p': 'Calificación Promedio',
+    'hero.stat3p': 'Satisfacción Garantizada',
+    'ba.tag': 'Mira La Diferencia',
+    'ba.title': 'Desliza para ver el brillo.',
+    'ba.sub': 'Uno de nuestros detallados recientes — mismo auto, mismo taller, con cuarenta minutos de diferencia.',
+    'ba.before': 'ANTES',
+    'ba.after': 'DESPUÉS',
+    'services.tag': 'Lo Que Ofrecemos',
+    'services.title': 'Paquetes de detallado para cada auto',
+    'services.sub': 'Elige un paquete o pregunta por un trabajo personalizado — cada visita incluye una inspección completa del vehículo.',
+    'service1.title': 'Lavado Express y Aspirado',
+    'service1.desc': 'Lavado exterior a mano, brillo de llantas, ventanas y aspirado completo del interior. Ideal para mantenimiento regular.',
+    'service1.price': 'Desde $45',
+    'service2.title': 'Detallado Interior Completo',
+    'service2.desc': 'Limpieza profunda de asientos, alfombras, tablero y consola — incluye vapor, shampoo y tratamiento de olores.',
+    'service2.price': 'Desde $120',
+    'service3.title': 'Corrección de Pintura Exterior',
+    'service3.desc': 'Clay bar, pulido a máquina y eliminación de marcas de remolino para recuperar el brillo y la profundidad original.',
+    'service3.price': 'Desde $150',
+    'service4.title': 'Recubrimiento Cerámico',
+    'service4.desc': 'Protección de pintura a largo plazo que mantiene tu auto luciendo recién detallado por meses.',
+    'service4.price': 'Desde $399',
+    'about.tag': 'Por Qué Silver Star',
+    'about.title': 'Detallado hecho bien',
+    'about.p': 'Silver Star Detailing Service fue fundado por David con un solo objetivo: brindar un cuidado de calidad de exhibición a cada vehículo que llega a nuestro taller. Cada detallado se realiza internamente, usando equipo de calidad profesional y productos seguros para todo tipo de interior y acabado de pintura.',
+    'about.li1': 'Ubicación conveniente — fácil entrega y recogida',
+    'about.li2': 'Proceso ecológico y eficiente en el uso de agua',
+    'about.li3': 'Satisfacción garantizada en cada trabajo',
+    'reviews.tag': 'Nuestros Clientes',
+    'reviews.title': 'Lo que dice la gente',
+    'reviews.localCustomer': 'Cliente local',
+    't1.quote': '"Mi auto se veía como nuevo por dentro y por fuera. El antes y después fue impresionante, de verdad."',
+    't2.quote': '"Dejé mi auto en la mañana y estuvo listo para el mediodía, luciendo como nuevo. Rápido y sin complicaciones. Volveré a reservar."',
+    't3.quote': '"El mejor trabajo de recubrimiento cerámico que he tenido. El agua resbala al instante. Vale cada centavo."',
+    'location.tag': 'Ubicación',
+    'location.title': 'Visita el taller',
+    'location.sub': 'Deja tu auto o pasa por una cotización gratis — es fácil llegar.',
+    'location.directions': 'Cómo Llegar',
+    'location.callBefore': 'Llama Antes de Venir',
+    'contact.tag': 'Contáctanos',
+    'contact.title': '¿Listo para tu momento de antes y después?',
+    'contact.p': 'Cuéntanos sobre tu auto — te responderemos con una cotización el mismo día.',
+    'contact.callText': 'Llama o Envía un Mensaje a David',
+    'contact.email': 'Correo Electrónico',
+    'contact.address': 'Dirección del Taller',
+    'contact.hours': 'Horario',
+    'contact.hoursValue': 'Lun–Sáb, 8am–6pm',
+    'form.name': 'Nombre completo',
+    'form.phone': 'Número de teléfono',
+    'form.vehicle': 'Vehículo (año / marca / modelo)',
+    'form.message': '¿Qué te gustaría que hagamos?',
+    'form.submit': 'Solicitar Cotización',
+    'footer.rights': 'Todos los derechos reservados.',
+  };
+
+  let currentLang = 'en';
+  const langBtn = document.getElementById('langToggle');
+
+  function applyLanguage(lang){
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (lang === 'es' && es[key]) {
+        if (!el.hasAttribute('data-i18n-en')) el.setAttribute('data-i18n-en', el.textContent);
+        el.textContent = es[key];
+      } else {
+        const original = el.getAttribute('data-i18n-en');
+        if (original !== null) el.textContent = original;
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (lang === 'es' && es[key]) {
+        if (!el.hasAttribute('data-i18n-en-placeholder')) el.setAttribute('data-i18n-en-placeholder', el.placeholder);
+        el.placeholder = es[key];
+      } else {
+        const original = el.getAttribute('data-i18n-en-placeholder');
+        if (original !== null) el.placeholder = original;
+      }
+    });
+
+    document.documentElement.lang = lang;
+    langBtn.textContent = lang === 'es' ? 'English' : 'Español';
+    currentLang = lang;
+    try { localStorage.setItem('silverstar-lang', lang); } catch(e) {}
+  }
+
+  langBtn.addEventListener('click', () => {
+    applyLanguage(currentLang === 'en' ? 'es' : 'en');
+  });
+
+  let savedLang = null;
+  try { savedLang = localStorage.getItem('silverstar-lang'); } catch(e) {}
+  if (savedLang === 'es') applyLanguage('es');
 </script>
 
 </body>
